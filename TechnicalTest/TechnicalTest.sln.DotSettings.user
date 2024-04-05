@@ -1,0 +1,16 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ef743c48_002Ded68_002D4115_002Dbef9_002Df02f81d71152/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Handle_ValidProviderId_ReturnsProviderResponse" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::F0143D7E-EB02-4ECC-8A04-048AE8C006B8::net7.0::ProviderService.Application.Tests.UseCases.GetProviderById.GetProviderByIdQueryHandlerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F0143D7E-EB02-4ECC-8A04-048AE8C006B8::net7.0::ProviderService.Application.Tests.UseCases.ImportProviders.ImportProvidersCommandHandlerTests.Handle_ValidRequest_ImportsProvidersSuccessfully&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F0143D7E-EB02-4ECC-8A04-048AE8C006B8::net7.0::ProviderService.Application.Tests.UseCases.ImportProviders.ImportProvidersCommandHandlerTests.Handle_ValidationFails_ReturnsBadRequest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F0143D7E-EB02-4ECC-8A04-048AE8C006B8::net7.0::ProviderService.Application.Tests.UseCases.ImportProviders.ImportProvidersCommandHandlerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::44DEA325-6D92-487A-A39B-B5894AE97157::net7.0::ProviderService.Infrastructure.Tests.Repositories.FetchProviderRepositoryTests.GetProviderById_ValidProviderId_ReturnsProvider&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::44DEA325-6D92-487A-A39B-B5894AE97157::net7.0::ProviderService.Infrastructure.Tests.Repositories.FetchProviderRepositoryTests.GetProviderById_InvalidProviderId_ReturnsNull&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::44DEA325-6D92-487A-A39B-B5894AE97157::net7.0::ProviderService.Infrastructure.Tests.Repositories.FetchProviderRepositoryTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::44DEA325-6D92-487A-A39B-B5894AE97157::net7.0::ProviderService.Infrastructure.Tests.Repositories.WriteProviderRepositoryTests.ImportProviders_ValidProviders_ImportsSuccessfully&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::44DEA325-6D92-487A-A39B-B5894AE97157::net7.0::ProviderService.Infrastructure.Tests.Repositories.WriteProviderRepositoryTests.ImportProviders_NullProviders_ReturnsEmptyList&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::44DEA325-6D92-487A-A39B-B5894AE97157::net7.0::ProviderService.Infrastructure.Tests.Repositories.WriteProviderRepositoryTests.GivenASetOfProviders_WhenImportingData_ThenTheFullListOfProvidersGetsStored&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::44DEA325-6D92-487A-A39B-B5894AE97157::net7.0::ProviderService.Infrastructure.Tests.Repositories.WriteProviderRepositoryTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

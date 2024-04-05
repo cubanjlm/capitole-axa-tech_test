@@ -1,0 +1,16 @@
+﻿services: 
+  ravendb:
+    container_name: ravendb
+    image: ravendb/ravendb
+    ports:
+      - 8080:8080
+      - 38888:38888
+    environment:
+      - RAVEN_Security_UnsecuredAccessAllowed=PrivateNetwork
+      - RAVEN_Setup_Mode=None
+      - RAVEN_License_Eula_Accepted=true
+    networks:
+      - local
+
+networks:
+  local:
