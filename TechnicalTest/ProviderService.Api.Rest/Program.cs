@@ -1,3 +1,4 @@
+using ProviderService.Api.Rest.Middlewares;
 using ProviderService.Application;
 using ProviderService.Infrastructure;
 using ProviderService.Presentation;
@@ -12,6 +13,7 @@ builder.Services
     .AddApplication()
     .AddInfrastructure()
     .AddPresentation();
+builder.Services.AddTransient<GlobalErrorHandlingMiddleware>();
 
 builder.Host.UseSerilog((context, config) => config.ReadFrom.Configuration(context.Configuration));
 
@@ -27,7 +29,7 @@ app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
 
-// app.UseAuthorization();
+app.UseMiddleware<GlobalErrorHandlingMiddleware>();
 
 app.MapControllers();
 

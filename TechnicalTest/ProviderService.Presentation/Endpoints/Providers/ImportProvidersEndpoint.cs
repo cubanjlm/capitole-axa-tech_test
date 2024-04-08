@@ -1,9 +1,8 @@
 ﻿using Ardalis.ApiEndpoints;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using ProviderService.Application.UseCases.Providers.ImportProviders;
+using ProviderService.Presentation.Errors;
 
 namespace ProviderService.Presentation.Endpoints.Providers;
 
@@ -12,12 +11,10 @@ public class ImportProvidersEndpoint : EndpointBaseAsync
     .WithActionResult<List<ProviderOutputDto>>
 {
     private readonly ISender _sender;
-    private readonly ILogger<ImportProvidersEndpoint> _logger;
 
-    public ImportProvidersEndpoint(ISender sender, ILogger<ImportProvidersEndpoint> logger)
+    public ImportProvidersEndpoint(ISender sender)
     {
         _sender = sender;
-        _logger = logger;
     }
 
     [HttpPost("providers/import")]
@@ -25,29 +22,22 @@ public class ImportProvidersEndpoint : EndpointBaseAsync
         [FromBody] List<ProviderInputDto> request,
         CancellationToken cancellationToken = new())
     {
-        try
-        {
-            var domainProviders = request
-                .Select(x => new ProviderCreationRequest(x.Id, x.Name, x.PostalAddress, x.Type, x.CreatedAt)).ToList();
-            var importProvidersCommand = new ImportProvidersCommand(domainProviders);
+        var domainProviders = request
+            .Select(x => new ProviderCreationRequest(x.Id, x.Name, x.PostalAddress, x.Type, x.CreatedAt)).ToList();
+        var importProvidersCommand = new ImportProvidersCommand(domainProviders);
 
-            var operationResult = await _sender.Send(importProvidersCommand, cancellationToken);
-            if (operationResult.IsFailure)
-            {
-                return BadRequest(operationResult.Error.Message);
-            }
-
-            var providerOutputDtos = operationResult.Value.Select(x => new ProviderOutputDto
-            {
-                Id = x.Id,
-                Name = x.Name
-            });
-            return Ok(providerOutputDtos);
-        }
-        catch (Exception e)
+        var operationResult = await _sender.Send(importProvidersCommand, cancellationToken);
+        if (operationResult.IsFailure)
         {
-            _logger.LogError(e, "An error server occured.");
-            return Problem(detail: "An error server occured.", statusCode: StatusCodes.Status500InternalServerError);
+            var problem = new CustomProblem(operationResult.Error.Code, operationResult.Error.Message);
+            return BadRequest(problem);
         }
+
+        var providerOutputDtos = operationResult.Value.Select(x => new ProviderOutputDto
+        {
+            Id = x.Id,
+            Name = x.Name
+        });
+        return Ok(providerOutputDtos);
     }
 }

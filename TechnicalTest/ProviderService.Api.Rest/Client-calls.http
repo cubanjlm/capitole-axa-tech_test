@@ -1,9 +1,10 @@
+@base=https://localhost:5001
 ### Retrieves a provider by it's id
-GET http://localhost:5000/providers/5
+GET {{base}}/providers/5
 Accept: application/json
 
 ### Import a list of providers
-POST http://localhost:5000/providers/import
+POST {{base}}/providers/import
 Content-Type: application/json
 
 [
