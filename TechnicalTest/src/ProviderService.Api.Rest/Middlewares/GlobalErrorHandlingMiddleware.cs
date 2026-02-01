@@ -20,7 +20,7 @@ public class GlobalErrorHandlingMiddleware:IMiddleware
         }
         catch (Exception e)
         {
-            var genericErrorHeader = "An error server occured.";
+            var genericErrorHeader = "A server error occurred.";
             
             _logger.LogError(e, genericErrorHeader);
             
